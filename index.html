@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title> Maps by Thejesh GN </title>
+	<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+	<!--[if lte IE 8]>
+    		<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" />
+	<![endif]-->
+	<script src="leaflet-hash.js"></script>	 
+	<script src="l.control.geosearch.js"></script>
+	<script src="l.geosearch.provider.openstreetmap.js"></script>
+	<link rel="stylesheet" href="l.geosearch.css" />
+
+	 <style>
+	 	#map { height: 100%; width:100%; }
+	 </style>
+</head>
+<body >
+	<div  id="map"></div>
+</body>
+	<script>
+
+
+		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		var osmAttrib = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors';
+
+		var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
+		var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
+
+		var mapQuestUrl ='http://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
+		var mapQuestAttrib = '<a href="http://www.mapquest.com/" target="_blank">MapQuest</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
+		subDomains = ['otile1','otile2','otile3','otile4'];
+
+ 
+		var osmMap = L.tileLayer(osmUrl, {attribution: osmAttrib});
+		var mapBoxMap = L.tileLayer(mapboxUrl, {attribution: mapBoxAttrib,id: 'thejeshgn.ifpg1ceh'});
+		var mapquest = new L.TileLayer(mapQuestUrl, { subdomains: subDomains, attribution: mapQuestAttrib});
+
+		var map = L.map('map', {
+			    layers: [mapquest] // only add one!
+		}).setView([12.971598700795482, 77.59456269966904], 15);
+
+		var baseLayers = {
+			"MapQuest": mapquest,
+			"MapBox": mapBoxMap,
+			"Open Street Maps": osmMap
+		};
+
+		L.control.layers(baseLayers).addTo(map);
+
+		var hash = new L.Hash(map);
+		
+		new L.Control.GeoSearch({
+		           provider: new L.GeoSearch.Provider.OpenStreetMap(),
+		           position: 'topcenter',
+    			showMarker: true
+		        }).addTo(map);
+
+	</script>
+</html>	 
