@@ -9,7 +9,15 @@
 	<script src="leaflet-hash.js"></script>	 
 	<script src="l.control.geosearch.js"></script>
 	<script src="l.geosearch.provider.openstreetmap.js"></script>
+    <script src="./locate/L.Control.Locate.js" ></script>
+
 	<link rel="stylesheet" href="l.geosearch.css" />
+    <link rel="stylesheet" href="./locate/L.Control.Locate.css" />
+
+    <!--[if lt IE 9]>
+      <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" />
+      <link rel="stylesheet" href="./locate/L.Control.Locate.ie.css"/>
+    <![endif]-->
 
 	 <style>
 	 	#map { height: 100%; width:100%; }
@@ -56,5 +64,16 @@
     			showMarker: true
 		        }).addTo(map);
 
+		// add location control to global name space for testing only
+		// on a production site, omit the "lc = "!
+		lc = L.control.locate({
+			follow: true
+		}).addTo(map);
+
+		map.on('startfollowing', function() {
+		    map.on('dragstart', lc.stopFollowing);
+		}).on('stopfollowing', function() {
+		    map.off('dragstart', lc.stopFollowing);
+		});
 	</script>
 </html>	 
