@@ -1,0 +1,34 @@
+#map { height: 100%; width:100%; }
+
+.right-fwd {
+background-image: url("img/arrow-right_000000_14.png");
+}
+
+.left-back {
+background-image: url("img/arrow-left_000000_14.png");
+}
+
+.home_button {
+	font-size: 1.4em;
+	color: #fff;
+	width:26px;
+	height:26px;
+	text-align: center;
+	vertical-align: center;
+	background-color:#fff;
+}
+
+.home_button_img {
+margin: 4px;
+}
+.right-fwd-disabled {
+background-image: url("img/arrow-right_bbbbbb_14.png");
+}
+
+.left-back-disabled {
+background-image: url("img/arrow-left_bbbbbb_14.png");
+}
+
+.home-disabled {
+background-image: url("img/home_bbbbbb_14.png");
+}

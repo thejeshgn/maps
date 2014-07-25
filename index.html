@@ -1,9 +1,7 @@
 <html>
 <head>
 	<title> Maps by Thejesh GN </title>
-	 <style>
-	 	#map { height: 100%; width:100%; }
-	 </style>
+	<link rel="stylesheet" href="style.css" />
 
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<script src="./leaflet/leaflet.js"></script>
@@ -14,8 +12,6 @@
 	<script src="./geosearch/l.control.geosearch.js"></script>
 	<script src="./geosearch/l.geosearch.provider.openstreetmap.js"></script>
 
-    	<link rel="stylesheet" href="./locate/L.Control.Locate.css" />
-    	<script src="./locate/L.Control.Locate.js" ></script>
 
 	<link rel="stylesheet" href="./minimap/Control.MiniMap.css" />
 	<script src="/minimap/Control.MiniMap.js" type="text/javascript"></script>
@@ -23,9 +19,20 @@
 	<link rel="stylesheet" href="./coordinates/Control.Coordinates.css" />
 	<script src="/coordinates/Control.Coordinates.js" type="text/javascript"></script>
 
+	<link rel="stylesheet" href="./sidebar/L.Control.Sidebar.css" />
+	<script src="/sidebar/L.Control.Sidebar.js" type="text/javascript"></script>
+	<script src="/buttons/leaflet-button-control.js" type="text/javascript"></script>
+
 
 </head>
 <body >
+	<div id="sidebar-left">
+        		<h1>About</h1>
+    	</div>
+	<div id="sidebar-right">
+	        <h1>Help</h1>
+	</div>
+
 	<div  id="map"></div>
 </body>
 	<script>
@@ -75,11 +82,31 @@
     			showMarker: true
 		        }).addTo(map);
 
-		// add location control to global name space for testing only
-		// on a production site, omit the "lc = "!
-		L.control.locate({
-			follow: false
-		}).addTo(map);
 
+		var leftSidebar = L.control.sidebar('sidebar-left', {
+		            position: 'left'
+		        });
+		map.addControl(leftSidebar);
+
+		var rightSidebar = L.control.sidebar('sidebar-right', {
+		    position: 'right'
+		});
+		map.addControl(rightSidebar);
+		
+		var myButtonOptions = {
+		      'text': '',  // string
+		      'iconUrl': 'images/home_000000_14.png',  // string
+		      'onClick': my_button_onClick,  // callback function
+		      'hideText': true,  // bool
+		      'maxWidth': 26,  // number
+		      'doToggle': false,  // bool
+		      'toggleStatus': false  // bool
+		}   
+
+		var myButton = new L.Control.Button(myButtonOptions).addTo(map);
+		function my_button_onClick() {
+			leftSidebar.toggle();
+		    console.log("someone clicked my button");
+		}
 	</script>
 </html>	 
