@@ -11,7 +11,7 @@
 
 	<link rel="stylesheet" href="./geosearch/l.geosearch.css" />
 	<script src="./geosearch/l.control.geosearch.js"></script>
-	<script src="./geosearch/l.geosearch.provider.openstreetmap.js"></script>
+	<script src="./geosearch/l.geosearch.provider.google.js"></script>
 
 
 	<link rel="stylesheet" href="./minimap/Control.MiniMap.css" />
@@ -78,7 +78,7 @@
 		var miniMap = new L.Control.MiniMap(osm2).addTo(map);
 
 		new L.Control.GeoSearch({
-		           provider: new L.GeoSearch.Provider.OpenStreetMap(),
+		           provider:  new L.GeoSearch.Provider.Google(),
 		           position: 'topcenter',
     			showMarker: true
 		        }).addTo(map);
