@@ -2,6 +2,7 @@
 <head>
 	<title> Maps by Thejesh GN </title>
 	<link rel="stylesheet" href="style.css" />
+	<link rel="stylesheet" href="./Font-Awesome/css/font-awesome.min.css" />
 
 	<link rel="stylesheet" href="./leaflet/leaflet.css" />
 	<script src="./leaflet/leaflet.js"></script>
@@ -92,21 +93,16 @@
 		    position: 'right'
 		});
 		map.addControl(rightSidebar);
-		
-		var myButtonOptions = {
-		      'text': '',  // string
-		      'iconUrl': 'images/home_000000_14.png',  // string
-		      'onClick': my_button_onClick,  // callback function
-		      'hideText': true,  // bool
-		      'maxWidth': 26,  // number
-		      'doToggle': false,  // bool
-		      'toggleStatus': false  // bool
-		}   
 
-		var myButton = new L.Control.Button(myButtonOptions).addTo(map);
-		function my_button_onClick() {
+		function about_bar_open() {
 			leftSidebar.toggle();
-		    console.log("someone clicked my button");
 		}
+		function about_bar_open() {
+			rightSidebar.toggle();
+		}
+
+		L.easyButton('fa-users',about_bar_open, 'About us', map); 
+		L.easyButton('fa-header',about_bar_open, 'Help', map); 
+
 	</script>
 </html>	 
