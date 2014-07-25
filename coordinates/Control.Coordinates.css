@@ -1,9 +1,12 @@
 .leaflet-control-coordinates {
-	background: white;
-	border-radius: 4px;
-	box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
-	cursor: pointer;
-	padding: 2px 5px;
+  bottom:10px;
+  left:10px;
+  padding:5px 10px;
+  background:rgba(0,0,0,0.5);
+  color:#fff;
+  font-size:11px;
+  line-height:18px;
+  border-radius:3px;
 }
 
 .leaflet-control-coordinates.hidden {
