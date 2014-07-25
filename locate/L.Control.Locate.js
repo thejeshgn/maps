@@ -168,6 +168,7 @@ L.Control.Locate = L.Control.extend({
         };
 
         var visualizeLocation = function() {
+            console.log(self._event)
             if (self._event.accuracy === undefined)
                 self._event.accuracy = 0;
 
