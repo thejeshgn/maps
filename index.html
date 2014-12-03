@@ -43,13 +43,13 @@
 	<script>
 
 
-		var osmUrl = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+		var osmUrl = 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
 		var osmAttrib = '&copy; <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors';
 
 		var mapboxUrl ='https://{s}.tiles.mapbox.com/v3/{id}/{z}/{x}/{y}.png';
 		var mapBoxAttrib = '&copy; <a href="http://mapbox.com">Mapbox</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
 
-		var mapQuestUrl ='https://{s}.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
+		var mapQuestUrl ='https://{s}-s.mqcdn.com/tiles/1.0.0/osm/{z}/{x}/{y}.png';
 		var mapQuestAttrib = '<a href="http://www.mapquest.com/" target="_blank">MapQuest</a> and <a href="http://openstreetmap.org">OpenStreetMap</a> Contributors ';
 		subDomains = ['otile1','otile2','otile3','otile4'];
 
@@ -59,7 +59,7 @@
 		var mapquest = new L.TileLayer(mapQuestUrl, { subdomains: subDomains, attribution: mapQuestAttrib});
 
 		var map = L.map('map', {
-			    layers: [osmMap] // only add one!
+			    layers: [mapquest] // only add one!
 		}).setView([12.971598700795482, 77.59456269966904], 15);
 
 		var baseLayers = {
