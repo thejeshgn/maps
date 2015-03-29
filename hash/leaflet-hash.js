@@ -30,7 +30,26 @@
 					zoom: zoom
 				};
 			}
-		} else {
+		}else if(args.length == 4){ 
+			var zoom = parseInt(args[0], 10),
+			lat = parseFloat(args[1]),
+			lon = parseFloat(args[2]);
+			note = args[3];
+			if (isNaN(zoom) || isNaN(lat) || isNaN(lon)) {
+				return false;
+			} else {
+					var marker = L.marker([lat, lon]).addTo(map);
+					url ="https://thejeshgn.com/mymaps/#"+zoom+"/"+lat+"/"+lon+"/"+note;
+					html="<b>Point of Interest</b><br>";
+					html=html+note+"<br><hr>";
+					html=html+"<a href='"+url+"'> Permalink to PoI</a>";
+					marker.bindPopup(html).openPopup();
+			return {
+					center: new L.LatLng(lat, lon),
+					zoom: zoom
+				};
+			}
+		}else {
 			return false;
 		}
 	};
