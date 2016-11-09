@@ -59,13 +59,12 @@
 		var mapquest = new L.TileLayer(mapQuestUrl, { subdomains: subDomains, attribution: mapQuestAttrib});
 
 		var map = L.map('map', {
-			    layers: [mapquest] // only add one!
+			    layers: [osmMap] // only add one!
 		}).setView([12.971598700795482, 77.59456269966904], 15);
 
 		var baseLayers = {
-			"MapQuest": mapquest,
-			"MapBox": mapBoxMap,
-			"Open Street Maps": osmMap
+			"Open Street Maps": osmMap,
+			"MapBox": mapBoxMap
 		};
 
 		L.control.layers(baseLayers).addTo(map);
