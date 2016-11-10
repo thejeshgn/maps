@@ -39,7 +39,7 @@
 				return false;
 			} else {
 					var marker = L.marker([lat, lon]).addTo(map);
-					url ="https://thejeshgn.com/mymaps/#"+zoom+"/"+lat+"/"+lon+"/"+note;
+					url ="http://placemap.in/#"+zoom+"/"+lat+"/"+lon+"/"+note;
 					html="<b>Point of Interest</b><br>";
 					html=html+note+"<br><hr>";
 					html=html+"<a href='"+url+"'> Permalink to PoI</a>";

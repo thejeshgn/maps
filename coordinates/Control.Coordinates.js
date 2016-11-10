@@ -48,7 +48,7 @@ L.Control.Coordinates = L.Control.extend({
 				latCoordinate = lat.textContent.substr(latTextIndex),
 				lngCoordinate = lng.textContent.substr(lngTextIndex);
 
-			window.prompt(this.options.promptText, 'https://thejeshgn.com/mymaps/#18/'+latCoordinate.trim()+'/'+lngCoordinate.trim());
+			window.prompt(this.options.promptText, 'http://placemap.in/#18/'+latCoordinate.trim()+'/'+lngCoordinate.trim());
     	}, this);
 
 		return container;
