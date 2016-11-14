@@ -76,6 +76,10 @@
 		geocoder.setPosition('topleft');
 		
 		new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
+
+		var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
+		var miniMap = new L.Control.MiniMap(osm2).addTo(map);
+		miniMap.setPosition('bottomright');
 		
 		var hash = new L.Hash(map);
 		
@@ -84,10 +88,7 @@
 		map.on('click', function(e) {
 		    c.setCoordinates(e);
 		});
-
-		var osm2 = new L.TileLayer(osmUrl, {minZoom: 0, maxZoom: 13, attribution: osmAttrib});
-		var miniMap = new L.Control.MiniMap(osm2).addTo(map);
-
+		c.setPosition('bottomleft');
 
 
 		L.control.locate({
@@ -131,11 +132,13 @@
 		            position: 'left'
 		        });
 		map.addControl(leftSidebar);
+		//leftSidebar.setPosition('topleft');
 
 		var rightSidebar = L.control.sidebar('sidebar-right', {
 		    position: 'right'
 		});
 		map.addControl(rightSidebar);
+		//rightSidebar.setPosition('topright');
 
 		function about_bar_open() {
 			leftSidebar.toggle();
