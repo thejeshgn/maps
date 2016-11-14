@@ -58,7 +58,8 @@
 		var mapquest = new L.TileLayer(mapQuestUrl, { subdomains: subDomains, attribution: mapQuestAttrib});
 
 		var map = L.map('map', {
-			    layers: [osmMap] // only add one!
+			    layers: [osmMap], // only add one!
+			    zoomControl: false
 		}).setView([12.971598700795482, 77.59456269966904], 15);
 
 		var baseLayers = {
@@ -74,6 +75,7 @@
 		geocoder.addTo(map);
 		geocoder.setPosition('topleft');
 		
+		new L.Control.Zoom({ position: 'bottomright' }).addTo(map);
 		
 		var hash = new L.Hash(map);
 		
