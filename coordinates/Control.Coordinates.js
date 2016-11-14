@@ -59,7 +59,7 @@ L.Control.Coordinates = L.Control.extend({
 			while (note.length > 100)
 
 			var marker = L.marker([latCoordinate.trim(), lngCoordinate.trim()]).addTo(map);
-			url ="http://placemap.in/#18/"+latCoordinate.trim()+"/"+lngCoordinate.trim()+"/"+encodeURI(note);
+			var url ="http://placemap.in/#18/"+latCoordinate.trim()+"/"+lngCoordinate.trim()+"/"+encodeURI(note);
 			var html="<b>Point of Interest</b><br>";
 			html=html+note+"<br><hr>";
 			html=html+"<a href='"+url+"'> Permalink to PoI</a>";
