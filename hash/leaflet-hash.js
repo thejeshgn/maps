@@ -40,9 +40,9 @@
 			} else {
 					var marker = L.marker([lat, lon]).addTo(map);
 					url ="http://placemap.in/#"+zoom+"/"+lat+"/"+lon+"/"+note;
-					html="<b>Point of Interest</b><br>";
-					html=html+note+"<br><hr>";
-					html=html+"<a href='"+url+"'> Permalink to PoI</a>";
+					html="<b>Map Note</b><br>";
+					html=html+decodeURI(note)+"<br><hr>";
+					html=html+"<a href='"+url+"'>Link to this note</a>";
 					marker.bindPopup(html).openPopup();
 			return {
 					center: new L.LatLng(lat, lon),
