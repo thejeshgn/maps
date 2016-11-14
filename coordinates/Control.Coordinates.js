@@ -50,6 +50,7 @@ L.Control.Coordinates = L.Control.extend({
 
 			//window.prompt(this.options.promptText, 'http://placemap.in/#18/'+latCoordinate.trim()+'/'+lngCoordinate.trim());
 			var n = 0, msg = "Please enter your message (Maximum limit 100 chars)";
+			var note="";
 			do {
 			    n++;
 			    if(n > 1) msg = "You had too many characters! \nPlease enter your message (Maximum limit 100).";
@@ -57,7 +58,7 @@ L.Control.Coordinates = L.Control.extend({
 			}
 			while (note.length > 100)
 
-			var marker = L.marker([lat, lon]).addTo(map);
+			var marker = L.marker([latCoordinate.trim(), lngCoordinate.trim()]).addTo(map);
 			url ="http://placemap.in/#18/"+latCoordinate.trim()+"/"+lngCoordinate.trim()+"/"+encodeURI(note);
 			var html="<b>Point of Interest</b><br>";
 			html=html+note+"<br><hr>";
