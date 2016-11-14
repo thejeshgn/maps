@@ -6,6 +6,14 @@
     <script src="./control/Permalink.js"></script>
     <script src="./control/Permalink.Marker.js"></script>
     <script src="./control/Permalink.Layer.js"></script>
+    <!-- style sheet for mapzen.js -->
+<link rel="stylesheet" href="https://mapzen.com/js/mapzen.standalone.css">
+
+
+
+<!-- latest minified version of standalone mapzen.js -->
+<script src="https://mapzen.com/js/mapzen.standalone.min.js"></script>
+    
 </head>
 <body>
     <div style="width:100%; height:100%" id="map"></div>
@@ -17,6 +25,8 @@ var kosm = new L.TileLayer('http://{s}.tile.osmosnimki.ru/kosmo/{z}/{x}/{y}.png'
 var layers = new L.Control.Layers({'OSM':osm, "Kosmo":kosm});
 map.addControl(layers);
 map.addControl(new L.Control.Permalink({text: 'Permalink', layers: layers}));
+  var geocoder = L.Mapzen.geocoder('mapzen-jVtDTjh');
+geocoder.addTo(map);
 </script>
  
 </body>
