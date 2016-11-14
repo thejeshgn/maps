@@ -48,7 +48,23 @@ L.Control.Coordinates = L.Control.extend({
 				latCoordinate = lat.textContent.substr(latTextIndex),
 				lngCoordinate = lng.textContent.substr(lngTextIndex);
 
-			window.prompt(this.options.promptText, 'http://placemap.in/#18/'+latCoordinate.trim()+'/'+lngCoordinate.trim());
+			//window.prompt(this.options.promptText, 'http://placemap.in/#18/'+latCoordinate.trim()+'/'+lngCoordinate.trim());
+			var n = 0, msg = "Please enter your message (Maximum limit 100 chars)";
+			do {
+			    n++;
+			    if(n > 1) msg = "You had too many characters! \nPlease enter your message (Maximum limit 100).";
+			    note=prompt(msg, note);
+			}
+			while (note.length > 100)
+
+			var marker = L.marker([lat, lon]).addTo(map);
+			url ="http://placemap.in/#18/"+latCoordinate.trim()+"/"+lngCoordinate.trim()+"/"+encodeURI(note);
+			var html="<b>Point of Interest</b><br>";
+			html=html+note+"<br><hr>";
+			html=html+"<a href='"+url+"'> Permalink to PoI</a>";
+			marker.bindPopup(html).openPopup();
+
+			
     	}, this);
 
 		return container;
